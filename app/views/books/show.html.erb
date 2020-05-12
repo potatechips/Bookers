@@ -2,7 +2,6 @@
 <p><%= @book.title %></p>
 <p><%= @book.body %></p>
 
-<%= form_for(@book) do |f| %>
-   <%= f.submit 'Edit' %>
-   <%= f.submit 'Back' %>
-<% end %>
+<%= link_to "Edit", edit_book_path(@book) %>
+ <%= link_to "Back", books_path %>
+
