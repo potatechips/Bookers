@@ -1,0 +1,8 @@
+
+<p><%= @book.title %></p>
+<p><%= @book.body %></p>
+
+<%= form_for(@book) do |f| %>
+   <%= f.submit 'Edit' %>
+   <%= f.submit 'Back' %>
+<% end %>
