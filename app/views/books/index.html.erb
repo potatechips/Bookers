@@ -1,3 +1,7 @@
+<% if flash[:message] %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
 <h1>Books</h1>
 <table>
 	<thead>
@@ -23,10 +27,21 @@
 <h2> New Book </h2>
 
 <%= form_for(@book) do |f| %>
+    <% if @book.errors.any? %>
+    <h2><%= @book.errors.count %> error prohibited this book from being saved:</h2>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
    <p>Title</p>
    <%= f.text_field :title %>
    <p>Body</p>
    <%= f.text_area :body %><br>
    <%= f.submit 'Create Book' %>
 
+
 <% end %>
+
